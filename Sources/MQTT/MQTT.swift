@@ -46,6 +46,9 @@ struct MQTT: AsyncParsableCommand {
         @Option(name: .shortAndLong, help: "QoS level for messages")
         var qos: UInt8 = 0
         
+        @Flag(name: .long, inversion: .prefixedNo, help: "Discard any pending messages for the client before connecting")
+        var clean: Bool = true
+        
         @Flag(name: .long, help: "Increase output verbosity")
         var verbose: Bool = false
     }

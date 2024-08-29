@@ -18,7 +18,7 @@ extension MQTT {
         
         mutating func run() async throws {
             let client = try NewMQTTClient(options: self.options)
-            try await client.connect()
+            try await client.connect(cleanSession: self.options.clean)
             
             let logger = NewLogger(label: "SUB", options: self.options)
             
